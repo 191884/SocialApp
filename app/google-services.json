@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "666551069527",
+    "project_id": "letstalk-4462d",
+    "storage_bucket": "letstalk-4462d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:666551069527:android:8dc35ab8e4e648773fac12",
+        "android_client_info": {
+          "package_name": "com.yo.letstalk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "666551069527-gskqelohr7bg3j36rar7rgalvoesugaj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yo.letstalk",
+            "certificate_hash": "f3740db23d7df00b0568bb0c657ce8399cae1536"
+          }
+        },
+        {
+          "client_id": "666551069527-cighpf2f8pou8i141v3h5m4u812lgj4i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaZH63Riz16y_BH7Vgg6gazDJ88iFvl38"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "666551069527-cighpf2f8pou8i141v3h5m4u812lgj4i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
