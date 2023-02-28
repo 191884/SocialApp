@@ -5,6 +5,8 @@ import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -20,6 +22,7 @@ import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.yo.letstalk.daos.UserDao
+import com.yo.letstalk.databinding.ActivitySignInBinding
 import com.yo.letstalk.models.User
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -31,10 +34,13 @@ class SignInActivity : AppCompatActivity() {
 
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var auth: FirebaseAuth
+    private lateinit var binding: ActivitySignInBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_in)
+        binding = ActivitySignInBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
@@ -46,10 +52,29 @@ class SignInActivity : AppCompatActivity() {
 
         val signInButton: SignInButton = findViewById(R.id.signIn)
 
+        binding.btnSignIn.setOnClickListener{
+            val email = binding.editEmail.text.toString()
+            val password = binding.editPassword.text.toString()
+
+            login(email, password)
+        }
+
         signInButton.setOnClickListener{
             signIn()
         }
 
+    }
+    private fun login(email: String, password: String) {
+        auth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    intent = Intent(this@SignInActivity, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                } else {
+                    Toast.makeText(this,"User Not Exists.", Toast.LENGTH_LONG).show()
+                }
+            }
     }
 
     override fun onStart() {

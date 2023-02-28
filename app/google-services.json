@@ -14,11 +14,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "666551069527-gskqelohr7bg3j36rar7rgalvoesugaj.apps.googleusercontent.com",
+          "client_id": "666551069527-j8e5pfg89qs3r9khal1s7erqqr0vekgl.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.yo.letstalk",
-            "certificate_hash": "f3740db23d7df00b0568bb0c657ce8399cae1536"
+            "certificate_hash": "c5a296f255b4a59292343149ad428702fb698b9a"
           }
         },
         {
